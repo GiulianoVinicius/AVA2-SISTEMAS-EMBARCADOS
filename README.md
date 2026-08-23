@@ -28,10 +28,7 @@ Detalhamento por partes:
   - Serial.println(analogRead(0)); imprime o valor lido — aqui o código faz uma segunda leitura em vez de imprimir `lux` (melhor usar `Serial.println(lux);` para evitar leituras duplicadas).
   - delay(1000); espera 1 segundo antes da próxima leitura.
 
-Observações e possíveis problemas:
-- Não é necessário chamar pinMode para a entrada analógica; analogRead cuida disso.
-- Chamar analogRead(0) duas vezes (na linha que atribui `lux` e na linha que imprime) pode retornar valores ligeiramente diferentes; reutilize `lux`.
-- Os nomes dos pinos (PB7, PA10...) dependem do core/placa; confirme se esses mapeamentos estão corretos para sua placa STM32.
+
 
 Código original:
 
