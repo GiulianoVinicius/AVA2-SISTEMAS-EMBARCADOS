@@ -1,0 +1,36 @@
+
+#define LR PB7
+#define LY PB6
+#define LG PA10
+
+void setup() {  
+  Serial.begin(115200);
+  Serial.println("Hello, STM32!");
+  pinMode(LR,OUTPUT);
+  pinMode(LG,OUTPUT);
+  pinMode(LY,OUTPUT);
+}
+
+void loop() {
+  int lux=analogRead(0);
+  if(lux<350)
+    {
+      digitalWrite(LG,1);
+      digitalWrite(LR,0);
+      digitalWrite(LY,0);
+    }
+  else if(lux>=350 and lux<=700)
+    {
+      digitalWrite(LG,0);
+      digitalWrite(LR,0);
+      digitalWrite(LY,1);
+    }  
+  else
+    {
+      digitalWrite(LG,0);
+      digitalWrite(LR,1);
+      digitalWrite(LY,0);
+    }
+  Serial.println(analogRead(0));
+  delay(1000); 
+}
